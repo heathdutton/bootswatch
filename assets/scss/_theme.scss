@@ -11,3 +11,6 @@ $bootswatch-theme: false !default;
 @if $bootswatch-theme {
   @import "../vendor/bootswatch/#{$bootswatch-theme}/bootswatch";
 }
+
+$fa-font-path: "../vendor/font-awesome/fonts";
+@import "../vendor/font-awesome/scss/font-awesome";
