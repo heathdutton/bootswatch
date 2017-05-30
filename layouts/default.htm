@@ -13,9 +13,9 @@ description = "Default layout"
         <link rel="icon" type="image/png" href="{{ 'assets/images/logo.png'|theme }}">
         {% styles %}
         <link href="{{ [
-            'assets/less/theme.less'
+            'assets/scss/default.scss'
         ]|theme }}" rel="stylesheet">
-        
+
         <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
 		<!--[if lt IE 9]>
 			<script src="{{ [
@@ -63,7 +63,7 @@ description = "Default layout"
             'assets/vendor/bootstrap/js/tab.js',
 
             'assets/vendor/jquery-ui/js/widget.js',
-            'assets/vendor/jquery-ui/js/mouse.js',
+            'assets/vendor/jquery-ui/js/widgets/mouse.js',
             'assets/vendor/jquery-ui/js/position.js',
             'assets/vendor/jquery-ui/js/widgets/button.js',
             'assets/vendor/jquery-ui/js/widgets/slider.js',
