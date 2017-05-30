@@ -8,12 +8,13 @@ description = "Default layout"
         <meta name="title" content="{{ this.page.meta_title }}">
         <meta name="description" content="{{ this.page.meta_description }}">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="author" content="OctoberCMS">
+        <meta name="author" content="{{ this.theme.site_name }}">
         <meta name="generator" content="OctoberCMS">
         <link rel="icon" type="image/png" href="{{ 'assets/images/logo.png'|theme }}">
         {% styles %}
+        {{ this.theme.bootstrap }}
         <link href="{{ [
-            'assets/scss/default.scss'
+            'assets/scss/theme.scss'
         ]|theme }}" rel="stylesheet">
 
         <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->

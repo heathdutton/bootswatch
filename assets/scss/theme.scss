@@ -1,13 +1,13 @@
-$bootswatch-theme: false !default;
+$bootswatch-theme: 'default' !default;
 
 @import "custom";
 
-@if $bootswatch-theme {
+@if $bootswatch-theme != 'default' {
   @import "../vendor/bootswatch/#{$bootswatch-theme}/variables";
 }
 
 @import "../vendor/bootstrap/scss/bootstrap";
 
-@if $bootswatch-theme {
+@if $bootswatch-theme != 'default' {
   @import "../vendor/bootswatch/#{$bootswatch-theme}/bootswatch";
 }

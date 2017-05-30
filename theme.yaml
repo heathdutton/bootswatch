@@ -1,5 +1,37 @@
-name: Flat UI
-code: Flat
-description: A theme that uses a Flat user-interface and has no dependencies on others plugins.
-author: Responsiv Internet
-homepage: 'http://github.com/responsiv'
+name: Bootswatch
+code: bootswatch
+description: A fork of the Flat UI theme to support Bootswatches and SCSS.
+author: Heath Dutton
+previewImage: assets/vendor/bootswatch/logo.png
+homepage: 'http://github.com/heathdutton/bootswatch'
+form:
+  fields:
+    site_name:
+      label: Site name
+      comment: The website name as it should appear on the front-end
+      default: My site of pure awesome.
+    bootswatch:
+      label: Bootswatch
+      comment: Bootswatches are like themes on top of Bootstrap, that can also be extended further....
+      type: radio
+      commentHtml: dropdown
+      assetVar: 'bootswatch-theme'
+      default: default
+      options:
+          default: 'Default'
+          cerulean: 'Cerulean'
+          cosmo: 'Cosmo'
+          cyborg: 'Cyborg'
+          darkly: 'Darkly'
+          flatly: 'Flatly'
+          journal: 'Journal'
+          lumen: 'Lumen'
+          paper: 'Paper'
+          readable: 'Readable'
+          sandstone: 'Sandstone'
+          simplex: 'Simplex'
+          slate: 'Slate'
+          spacelab: 'Spacelab'
+          superhero: 'Superhero'
+          united: 'United'
+          yeti: 'Yeti'
