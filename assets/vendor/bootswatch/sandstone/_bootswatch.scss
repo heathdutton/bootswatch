@@ -1,19 +1,11 @@
-// Sandstone 4.0.0
+// Sandstone 3.3.7
 // Bootswatch
-
+// -----------------------------------------------------
 
 $web-font-path: "https://fonts.googleapis.com/css?family=Roboto:400,500,700" !default;
 @import url($web-font-path);
 
-// Navbar ======================================================================
-
-.bg-primary {
-  background-color: $gray-dark !important;
-}
-
-.bg-inverse {
-  background-color: $gray-lightest !important;
-}
+// Navbar =====================================================================
 
 .sandstone {
   font-size: 11px;
@@ -23,7 +15,7 @@ $web-font-path: "https://fonts.googleapis.com/css?family=Roboto:400,500,700" !de
 }
 
 .navbar {
-  .nav-link {
+  .nav > li > a {
     @extend .sandstone;
   }
 
@@ -33,98 +25,116 @@ $web-font-path: "https://fonts.googleapis.com/css?family=Roboto:400,500,700" !de
   }
 }
 
-// Buttons =====================================================================
+// Buttons ====================================================================
 
 .btn {
+  border: none;
   @extend .sandstone;
 
   &:hover {
     border-color: transparent;
   }
+
+  &-lg {
+    line-height: 26px;
+  }
+
+  &-default {
+    &:hover {
+      background-color: $navbar-default-link-active-bg;
+    }
+  }
 }
 
-// Typography ==================================================================
+// Typography =================================================================
 
-// Tables ======================================================================
+// Tables =====================================================================
 
-// Forms =======================================================================
+// Forms ======================================================================
 
 input,
 .form-control {
   @include box-shadow(none);
 
   &:focus {
-    // border-color: $input-border;
+    border-color: $input-border;
     @include box-shadow(none);
   }
 }
 
-// Navs ========================================================================
+// Navs =======================================================================
+
+.nav {
+  @extend .sandstone;
+
+  .open > a,
+  .open > a:hover,
+  .open > a:focus {
+    border-color: $gray-light;
+  }
+}
 
 .nav-tabs {
-  .nav-link {
-    @extend .sandstone;
-    background-color: $gray-lightest;
-    border-color: $gray-lighter;
-  }
 
-  .nav-link,
-  .nav-link:hover,
-  .nav-link:focus {
+  & > li > a {
+    background-color: $gray-lighter;
+    border-color: $nav-tabs-border-color;
     color: $gray;
   }
 
-  .nav-link.disabled,
-  .nav-link.disabled:hover,
-  .nav-link.disabled:focus {
-    background-color: $gray-lightest;
-    border-color: $gray-lighter;
+  > li.disabled > a:hover {
+    background-color: $gray-lighter;
   }
 }
 
 .nav-pills {
-  .nav-link {
-    @extend .sandstone;
-    border: 1px solid transparent;
+  a {
     color: $gray;
   }
 
-  .nav-link.active,
-  .nav-link:hover,
-  .nav-link:focus {
-    background-color: $gray-lightest;
-    border-color: $gray-lighter;
+  li > a {
+    border: 1px solid transparent;
   }
 
-  .nav-link.disabled,
-  .nav-link.disabled:hover {
-    background-color: transparent;
+  li.active > a,
+  li > a:hover {
+    border-color: $gray-light;
+  }
+
+  li.disabled > a {
     border-color: transparent;
-    color: $nav-disabled-link-color;
   }
 }
 
-
 .breadcrumb {
   @extend .sandstone;
-  border: 1px solid $gray-lighter;
+
+  border: 1px solid $gray-light;
+
+  a {
+    color: $gray;
+  }
 }
 
 .pagination {
   @extend .sandstone;
+}
 
-  a:hover {
-    text-decoration: none;
+.pager {
+  @extend .sandstone;
+
+  li > a {
+    color: $gray;
   }
 }
 
 .dropdown-menu {
-  .dropdown-item {
+  & > li > a {
     @extend .sandstone;
   }
 }
 
-// Indicators ==================================================================
+// Indicators =================================================================
 
 .alert {
 
@@ -138,15 +148,48 @@ input,
   @extend .sandstone;
 }
 
-.close {
-  color: $gray-lighter;
-  opacity: 1;
+// Progress bars ==============================================================
 
-  &:hover {
-    color: darken($gray-lighter, 20%);
+.progress {
+  border-radius: 10px;
+  background-color: $gray-light;
+  @include box-shadow(none);
+
+  &-bar {
+    @include box-shadow(none);
   }
 }
 
-// Progress bars ===============================================================
+// Containers =================================================================
 
-// Containers ==================================================================
+.list-group {
+  &-item {
+    padding: 16px 24px;
+  }
+}
+
+.well {
+  @include box-shadow(none);
+}
+
+.panel {
+  @include box-shadow(none);
+
+  .panel-heading,
+  .panel-title {
+    @extend .sandstone;
+    color: #fff;
+  }
+
+  .panel-footer {
+    @extend .sandstone;
+  }
+
+  &-default {
+    .panel-heading,
+    .panel-title,
+    .panel-footer {
+      color: $gray;
+    }
+  }
+}
