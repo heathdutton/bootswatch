@@ -1,0 +1,97 @@
+description = "All"
+
+[staticPage]
+useContent = 1
+default = 1
+
+[staticMenu menuHeaderTop]
+code = "header-top"
+
+[staticMenu menuHeaderUnder]
+code = "header-under"
+
+[staticMenu menuMain]
+code = "footer-main"
+
+[staticMenu menuSocial]
+code = "footer-social"
+
+[staticMenu menuLegal]
+code = "footer-legal"
+
+[viewBag]
+==
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    {# Use the Meta title if available, otherwise the internal page title. #}
+    <title>{% if this.page.meta_title is empty %}{{ this.page.title }}{% else %}{{ this.page.meta_title }}{% endif %}</title>
+    <meta name="title" content="{{ this.page.meta_title }}">
+    <meta name="description" content="{{ this.page.meta_description }}">
+    <meta name="author" content="{{ this.theme.site_name }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="generator" content="OctoberCMS">
+    {% component 'SeoStaticPage' %}
+    {% if (image_source | length) > 0 or (hero_background | length) > 0 %}
+        <meta property="og:image"
+              content="{% if this.page.layout == 'product' %}{{ url('/') }}{{ hero_background|media }}
+            {% else %}{% if (image_source | length) > 0 %}{{ url('/') }}{{ image_source|media }}{% endif %}{% endif %}"/>
+    {% endif %}
+
+    <link rel="icon" type="image/png" href="{{ 'assets/images/favicon/favicon.png'|theme }}">
+    {% styles %}
+    <link href="{{ [
+        'assets/scss/theme.scss'
+    ]|theme }}" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+    <!--[if lt IE 9]>
+    <script src="{{ [
+				'assets/javascript/html5shiv.js',
+				'assets/javascript/respond.min.js',
+			]|theme }}"></script>
+    <![endif]-->
+</head>
+<body class="page-{{ this.page.id }} layout-{{ this.layout.id }} tags-{{ tags }}">
+
+{% partial "nav" %}
+<!-- Content -->
+<div id="layout-content">
+    {% if this.page.layout == "article" %}
+        {% include "../partials/article/default" %}
+    {% elseif this.page.layout == "product" %}
+        {% include "../partials/product/default" %}
+    {% elseif this.page.layout == "home" %}
+        {# Home doesn't need a container wrapper currently. #}
+        {% page %}
+    {% else %}
+        {# All other "default" pages need a container. #}
+        <div class="container">
+            {% page %}
+        </div>
+    {% endif %}
+
+    {% if this.page.layout == "article" or this.page.layout == "product" %}
+        {% partial "related_articles" %}
+    {% endif %}
+</div>
+
+<!-- Footer -->
+<footer id="layout-footer">
+    {% partial "footer" %}
+</footer>
+
+<!-- Scripts -->
+<script src="{{ [
+    'assets/javascript/jquery.min.js',
+    'assets/vendor/bootstrap/js/bootstrap.min.js',
+    'assets/javascript/jquery.header_menu.js',
+    'assets/javascript/jquery_external_links.js',
+    '../../modules/system/assets/js/framework.js',
+    '../../modules/system/assets/js/framework.extras.js',
+    'assets/javascript/app.js'
+]|theme }}"></script>
+
+</body>
+</html>

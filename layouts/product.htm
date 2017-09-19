@@ -1,4 +1,4 @@
-description = "Default"
+description = "Product"
 
 [staticPage]
 useContent = 1
@@ -24,7 +24,9 @@ code = "footer-legal"
 {# Global Variables Used to set hero header,subheader and background/page image #}
 {variable name="hero_header" label="Hero Header" tab="Hero" type="text"}{/variable}
 {variable name="hero_sub_header" label="Hero Sub Header" tab="Hero" type="text"}{/variable}
-{variable name="image_source" label="Image" tab="Hero" type="mediafinder" mode="image"}{/variable}
+{variable name="hero_background" label="Background Hero Image" tab="Hero" type="mediafinder" mode="image"}{/variable}
+{variable name="parallax_switch" label="Parallax On Background?" tab="Hero" type="switch" comment="If OFF Parallax Effect will be disabled"}{/variable}
 {# Variables for Category #}
 {variable name="tags" label="Category" tab="Category" type="taglist" customTags="true"}{/variable}
 {% partial "../layouts/_all" %}
+

@@ -1,0 +1,16 @@
+{% if parallax_switch == 1 %}
+    {% set parrallaxSwitch = "parallax-on" %}
+{% endif %}
+
+<div class="hero-loans {{ parrallaxSwitch }}" style="background-image: url('{{ hero_background|media }}');">
+    <section id="bg-loans">
+        <section id="bh-loans-inner">
+            <h2 class="big-header text-white text-center hidden-on-home">
+                {{ hero_header }}
+            </h2>
+            <h4 class="big-sub-header text-center text-white font-weight-normal hidden-on-home">
+                {{ hero_sub_header }}
+            </h4>
+        </section>
+    </section>
+</div>

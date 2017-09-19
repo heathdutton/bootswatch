@@ -1,0 +1,107 @@
+<div class="container">
+    <div class="row">
+
+        <div class="col-md-10">
+            <div class="div96">
+
+                <h1 class="blog-title"> {{ this.page.title }} </h1>
+
+                <!-- blog image -->
+                <div class="blogimage">
+                    {% if (image_source | length) > 0 %}
+                        <img src="{{ image_source | media | resize(945, false, {mode: 'crop', quality: '85'}) }}"
+                             alt="{{ this.page.title }}" class="blogimg">
+                    {% endif %}
+                </div>
+
+                <div class="blog-social">
+                    <div class="addthis_inline_share_toolbox"></div>
+                </div>
+
+                <!-- blog content -->
+                <div class="blog-content">
+                    <!-- Content Pages -->
+                    <div>
+
+                        {% page %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ads for Blog -->
+        {#
+        <div class="col-md-6">#}
+        {#<!-- ads goes here -->#}
+        {#
+        <div class="ads">#}
+        {#<h2> Ads 1</h2>#}
+        {#
+    </div>
+    #}
+        {#
+        <div class="ads">#}
+        {#<h2> Ads 2</h2>#}
+        {#
+    </div>
+    #}
+        {#
+    </div>
+    #}
+
+    </div> <!-- row ends -->
+</div>    <!-- container ends -->
+
+<div class="clearfix"></div>
+
+
+<!-- related articles -->
+<div class="related-articles">
+    <div class="container">
+        <div class="row">
+
+            {#<h2> loops with 6 blogs post goes here </h2>#}
+
+            {% for tag in this.page.tags|split(',') %}
+
+
+                <div class="col-md-6">
+                    <div class="related-inner">
+                        <div class="col-md-6">
+                            {% if (this.page.image_source | length) > 0 %}<img
+                                src="{{ this.page.image_source | media }}" alt="{{ this.page.title }}"
+                                class="blogimg">{% endif %}
+                        </div>
+                        <div class="col-md-6">
+                            <p> {{ this.page.description }} </p>
+                        </div>
+                    </div>
+                </div>
+
+            {% endfor %}
+
+        </div>
+    </div>
+</div>
+
+
+<div class="clearfix"></div>
+
+{#<!-- footer cta -->#}
+{#
+<div class="cta-footer-blog">#}
+    {#
+    <div class="container">#}
+        {#
+        <div class="row">#}
+            {#<h2> Get Mortgage refinance ... cta goes here </h2>#}
+            {#
+        </div>
+        #}
+        {#
+    </div>
+    #}
+    {#
+</div>#}
+

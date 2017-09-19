@@ -1,0 +1,18 @@
+$bootswatch-theme: 'default' !default;
+
+@import "variables";
+
+@if $bootswatch-theme != 'default' {
+  @import "../vendor/bootswatch/#{$bootswatch-theme}/variables";
+}
+
+@import "../vendor/bootstrap/scss/bootstrap";
+
+@if $bootswatch-theme != 'default' {
+  @import "../vendor/bootswatch/#{$bootswatch-theme}/bootswatch";
+}
+
+@import "custom";
+
+$fa-font-path: "../vendor/font-awesome/fonts";
+@import "../vendor/font-awesome/scss/font-awesome.scss";
